@@ -2,6 +2,7 @@ import express, { Application, Request, Response, NextFunction } from "express";
 import bodyParser from "body-parser";
 import path from "path";
 import { Routes } from "./api/routes";
+import cors from "cors";
 
 class App {
 	public app: Application;
@@ -14,6 +15,8 @@ class App {
 	}
 
 	private config(): void {
+		this.app.use(cors());
+
 		this.app.use((req: Request, res: Response, next: NextFunction) => {
 			res.header("Access-Control-Allow-Origin", "*");
 			res.header(
