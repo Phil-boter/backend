@@ -38,7 +38,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var secrets = require("../../../secrets.json");
 var nodemailer = require("nodemailer");
-var multiparty = require("multiparty");
 var transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
     port: 587,
@@ -63,18 +62,16 @@ var EmailService = /** @class */ (function () {
         return __awaiter(this, void 0, void 0, function () {
             var mail;
             return __generator(this, function (_a) {
-                console.log(data);
                 try {
-                    //2. You can configure the object however you want
-                    console.log("address", secrets.EMAILADDRESS);
+                    console.log(data);
                     mail = {
-                        from: data.from,
                         to: secrets.EMAILADDRESS,
+                        from: data.from,
                         subject: data.subject,
-                        text: "".concat(data.from, " <").concat(data.to, "> \n").concat(data.text, " "),
-                        created_at: Date.now(),
+                        text: "".concat(data.from, " <").concat(secrets.EMAILADDRESS, "> \n").concat(data.text, " "),
+                        created_at: data.created_at,
                     };
-                    //3.
+                    console.log(mail);
                     transporter.sendMail(mail, function (err) {
                         if (err) {
                             console.log(err);

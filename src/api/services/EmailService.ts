@@ -20,27 +20,25 @@ transporter.verify(function (error: any, success: any): any {
 	}
 });
 
-interface Email {
+export interface Email {
 	from: string;
+	to?: string;
 	subject?: string;
-	to: string;
 	text: string;
 	created_at: number;
 }
 
 class EmailService {
 	public async sendNewEmail(data: Email) {
-		console.log(data);
 		try {
 			const mail: Email = {
-				from: data.from,
 				to: secrets.EMAILADDRESS,
+				from: data.from,
 				subject: data.subject,
-				text: `${data.from} <${data.to}> \n${data.text} `,
-				created_at: Date.now(),
+				text: `${data.from} <${secrets.EMAILADDRESS}> \n${data.text} `,
+				created_at: data.created_at,
 			};
 
-			//3.
 			transporter.sendMail(mail, (err: any) => {
 				if (err) {
 					console.log(err);

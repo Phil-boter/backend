@@ -52,11 +52,10 @@ var EmailController = /** @class */ (function () {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
                         console.log("req", req.body);
-                        data = req.body;
+                        data = req.body.data;
                         return [4 /*yield*/, EmailService_1.default.sendNewEmail(data)];
                     case 1:
                         answer = _a.sent();
-                        console.log("answer", answer);
                         res.send("Email was send").status(200);
                         return [3 /*break*/, 3];
                     case 2:

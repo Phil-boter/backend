@@ -8,10 +8,8 @@ export class EmailController {
 		next: NextFunction
 	) {
 		try {
-			console.log("req", req.body);
-			const data = req.body;
+			const { data } = req.body;
 			const answer = await EmailService.sendNewEmail(data);
-			console.log("answer", answer);
 			res.send("Email was send").status(200);
 		} catch (e) {
 			throw e;
