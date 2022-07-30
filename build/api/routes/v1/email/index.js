@@ -24,9 +24,8 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var express = __importStar(require("express"));
-var ProjectsController_1 = require("../../../controllers/ProjectsController");
 var router = express.Router();
-router.get("/allProjects", ProjectsController_1.ProjectsController.getAllProjects);
-router.get("/singleProject", ProjectsController_1.ProjectsController.singleProject);
+var EmailController_1 = require("../../../controllers/EmailController");
+router.post("/sendEmail", EmailController_1.EmailController.sendEmail);
 exports.default = router;
 //# sourceMappingURL=index.js.map

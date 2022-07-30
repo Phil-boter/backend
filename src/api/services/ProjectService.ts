@@ -17,12 +17,22 @@ interface Project {
 
 interface ProjectContext {
 	allProjects(): Promise<Project[]>;
+	singleProject(id: number): Promise<Project>;
 }
 
 class ProjectService implements ProjectContext {
 	public async allProjects(): Promise<Project[]> {
 		try {
 			const data: Project[] = await db.getAllProjects();
+			return data;
+		} catch (e) {
+			throw e;
+		}
+	}
+
+	public async singleProject(id: number): Promise<Project> {
+		try {
+			const data: Project = await db.getProject(id);
 			return data;
 		} catch (e) {
 			throw e;

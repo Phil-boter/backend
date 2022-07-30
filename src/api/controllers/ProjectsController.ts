@@ -14,4 +14,19 @@ export class ProjectsController {
 			throw e;
 		}
 	}
+
+	public static async singleProject(
+		req: Request,
+		res: Response,
+		next: NextFunction
+	) {
+		try {
+			const queryId: any = req.query.id;
+			const id: number = parseInt(queryId);
+			const data = await ProjectService.singleProject(id);
+			res.send(data).status(200);
+		} catch (e) {
+			throw e;
+		}
+	}
 }

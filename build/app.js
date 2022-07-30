@@ -7,6 +7,7 @@ var express_1 = __importDefault(require("express"));
 var body_parser_1 = __importDefault(require("body-parser"));
 var path_1 = __importDefault(require("path"));
 var routes_1 = require("./api/routes");
+var cors_1 = __importDefault(require("cors"));
 var App = /** @class */ (function () {
     function App() {
         this.routePrv = new routes_1.Routes();
@@ -15,6 +16,7 @@ var App = /** @class */ (function () {
         this.routePrv.routes(this.app);
     }
     App.prototype.config = function () {
+        this.app.use((0, cors_1.default)());
         this.app.use(function (req, res, next) {
             res.header("Access-Control-Allow-Origin", "*");
             res.header("Access-Control-Allow-Methods", "GET,POST,DELETE,OPTIONS,PUT");

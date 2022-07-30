@@ -62,6 +62,25 @@ var ProjectService = /** @class */ (function () {
             });
         });
     };
+    ProjectService.prototype.singleProject = function (id) {
+        return __awaiter(this, void 0, void 0, function () {
+            var data, e_2;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 2, , 3]);
+                        return [4 /*yield*/, ProjectDatabase_1.default.getProject(id)];
+                    case 1:
+                        data = _a.sent();
+                        return [2 /*return*/, data];
+                    case 2:
+                        e_2 = _a.sent();
+                        throw e_2;
+                    case 3: return [2 /*return*/];
+                }
+            });
+        });
+    };
     return ProjectService;
 }());
 exports.default = new ProjectService();

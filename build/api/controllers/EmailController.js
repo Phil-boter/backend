@@ -39,22 +39,25 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ProjectsController = void 0;
-var ProjectService_1 = __importDefault(require("../services/ProjectService"));
-var ProjectsController = /** @class */ (function () {
-    function ProjectsController() {
+exports.EmailController = void 0;
+var EmailService_1 = __importDefault(require("../services/EmailService"));
+var EmailController = /** @class */ (function () {
+    function EmailController() {
     }
-    ProjectsController.getAllProjects = function (req, res, next) {
+    EmailController.sendEmail = function (req, res, next) {
         return __awaiter(this, void 0, void 0, function () {
-            var data, e_1;
+            var data, answer, e_1;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, ProjectService_1.default.allProjects()];
+                        console.log("req", req.body);
+                        data = req.body;
+                        return [4 /*yield*/, EmailService_1.default.sendNewEmail(data)];
                     case 1:
-                        data = _a.sent();
-                        res.send(data).status(200);
+                        answer = _a.sent();
+                        console.log("answer", answer);
+                        res.send("Email was send").status(200);
                         return [3 /*break*/, 3];
                     case 2:
                         e_1 = _a.sent();
@@ -64,29 +67,7 @@ var ProjectsController = /** @class */ (function () {
             });
         });
     };
-    ProjectsController.singleProject = function (req, res, next) {
-        return __awaiter(this, void 0, void 0, function () {
-            var queryId, id, data, e_2;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        _a.trys.push([0, 2, , 3]);
-                        queryId = req.query.id;
-                        id = parseInt(queryId);
-                        return [4 /*yield*/, ProjectService_1.default.singleProject(id)];
-                    case 1:
-                        data = _a.sent();
-                        res.send(data).status(200);
-                        return [3 /*break*/, 3];
-                    case 2:
-                        e_2 = _a.sent();
-                        throw e_2;
-                    case 3: return [2 /*return*/];
-                }
-            });
-        });
-    };
-    return ProjectsController;
+    return EmailController;
 }());
-exports.ProjectsController = ProjectsController;
-//# sourceMappingURL=ProjectsController.js.map
+exports.EmailController = EmailController;
+//# sourceMappingURL=EmailController.js.map
