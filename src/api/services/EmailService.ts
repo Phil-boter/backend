@@ -42,7 +42,6 @@ class EmailService {
 			transporter.sendMail(mail, (err: any) => {
 				if (err) {
 					console.log(err);
-					return new Error("email was not send");
 				} else {
 					const answer = true;
 					return answer;

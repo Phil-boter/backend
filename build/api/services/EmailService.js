@@ -63,7 +63,6 @@ var EmailService = /** @class */ (function () {
             var mail;
             return __generator(this, function (_a) {
                 try {
-                    console.log(data);
                     mail = {
                         to: secrets.EMAILADDRESS,
                         from: data.from,
@@ -71,11 +70,9 @@ var EmailService = /** @class */ (function () {
                         text: "".concat(data.from, " <").concat(secrets.EMAILADDRESS, "> \n").concat(data.text, " "),
                         created_at: data.created_at,
                     };
-                    console.log(mail);
                     transporter.sendMail(mail, function (err) {
                         if (err) {
                             console.log(err);
-                            return new Error("email was not send");
                         }
                         else {
                             var answer = true;

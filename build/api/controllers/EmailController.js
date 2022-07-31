@@ -46,17 +46,16 @@ var EmailController = /** @class */ (function () {
     }
     EmailController.sendEmail = function (req, res, next) {
         return __awaiter(this, void 0, void 0, function () {
-            var data, answer, e_1;
+            var data, e_1;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
-                        console.log("req", req.body);
-                        data = req.body.data;
+                        data = req.body.data.data;
                         return [4 /*yield*/, EmailService_1.default.sendNewEmail(data)];
                     case 1:
-                        answer = _a.sent();
-                        res.send("Email was send").status(200);
+                        _a.sent();
+                        res.json({ success: true, msg: "Email was send" }).status(200);
                         return [3 /*break*/, 3];
                     case 2:
                         e_1 = _a.sent();
