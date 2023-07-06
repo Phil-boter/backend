@@ -31,7 +31,15 @@ class App {
 
 		if (process.env.NODE_ENV === "production") {
 			this.app.use(
-				express.static(path.join(__dirname, "..", "frontend", "build"))
+				express.static(
+					path.join(
+						__dirname,
+						"..",
+						"frontend",
+						"dist",
+						"frontend-angular"
+					)
+				)
 			);
 
 			this.app.get("*", (req, res) => {
@@ -40,7 +48,8 @@ class App {
 						__dirname,
 						"..",
 						"frontend",
-						"build",
+						"dist",
+						"frontend-angular",
 						"index.html"
 					)
 				);

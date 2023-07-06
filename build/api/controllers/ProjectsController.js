@@ -64,6 +64,28 @@ var ProjectsController = /** @class */ (function () {
             });
         });
     };
+    ProjectsController.singleProject = function (req, res, next) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryId, id, data, e_2;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 2, , 3]);
+                        queryId = req.query.id;
+                        id = parseInt(queryId);
+                        return [4 /*yield*/, ProjectService_1.default.singleProject(id)];
+                    case 1:
+                        data = _a.sent();
+                        res.send(data).status(200);
+                        return [3 /*break*/, 3];
+                    case 2:
+                        e_2 = _a.sent();
+                        throw e_2;
+                    case 3: return [2 /*return*/];
+                }
+            });
+        });
+    };
     return ProjectsController;
 }());
 exports.ProjectsController = ProjectsController;

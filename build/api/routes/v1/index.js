@@ -29,8 +29,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var express = __importStar(require("express"));
 var user_1 = __importDefault(require("./user"));
 var projects_1 = __importDefault(require("./projects"));
+var email_1 = __importDefault(require("./email"));
 var router = express.Router();
 router.use("/user", user_1.default);
 router.use("/projects", projects_1.default);
+router.use("/email", email_1.default);
 exports.default = router;
 //# sourceMappingURL=index.js.map

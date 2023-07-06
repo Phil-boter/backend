@@ -19,7 +19,7 @@ interface Project {
 
 interface ProjectContext {
 	allProjects(): Promise<Project[]>;
-	selectedProject(id: string): Promise<Project>;
+	selectedProject(id: number): Promise<Project>;
 }
 
 class ProjectService implements ProjectContext {
@@ -35,7 +35,6 @@ class ProjectService implements ProjectContext {
 	public async selectedProject(id: string): Promise<Project> {
 		try {
 			const data: Project = await db.getSelectedProject(id);
-			console.log(data)
 			return data;
 		} catch (e) {
 			throw e;

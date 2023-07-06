@@ -1,1 +1,2 @@
+
 {"version":3,"file":"ProjectService.js","sourceRoot":"","sources":["../../../src/api/services/ProjectService.ts"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAAA,mFAAgD;AAsBhD;IAAA;IAUA,CAAC;IATa,oCAAW,GAAxB;;;;;;;wBAE0B,qBAAM,yBAAE,CAAC,cAAc,EAAE,EAAA;;wBAA3C,IAAI,GAAc,SAAyB;wBACjD,OAAO,CAAC,GAAG,CAAC,MAAM,EAAE,IAAI,CAAC,CAAA;wBACzB,sBAAO,IAAI,EAAC;;;wBAEZ,MAAM,GAAC,CAAC;;;;;KAET;IACF,qBAAC;AAAD,CAAC,AAVD,IAUC;AAED,kBAAe,IAAI,cAAc,EAAE,CAAC"}

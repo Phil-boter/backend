@@ -21,8 +21,9 @@ export class ProjectsController {
 		next: NextFunction
 	) {
 		try {
-			const id: any = req.query.id?.toString();
-			const data = await ProjectService.selectedProject(id);
+			const queryId: any = req.query.id;
+			const id: number = parseInt(queryId);
+			const data = await ProjectService.singleProject(id);
 			res.send(data).status(200);
 		} catch (e) {
 			throw e;
