@@ -23,7 +23,7 @@ export class ProjectsController {
 		try {
 			const queryId: any = req.query.id;
 			const id: number = parseInt(queryId);
-			const data = await ProjectService.singleProject(id);
+			const data = await ProjectService.selectedProject(id);
 			res.send(data).status(200);
 		} catch (e) {
 			throw e;
