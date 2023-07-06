@@ -15,7 +15,7 @@ export class ProjectsController {
 		}
 	}
 
-	public static async singleProject(
+	public static async getSelectedProject(
 		req: Request,
 		res: Response,
 		next: NextFunction
