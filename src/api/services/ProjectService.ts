@@ -1,3 +1,4 @@
+import { request } from "express";
 import db from "../../database/ProjectDatabase";
 
 interface Project {
@@ -12,17 +13,30 @@ interface Project {
 	images: Array<[]>;
 	host: string;
 	link: string;
+	badges: Array<[]>;
 	created_at: Date;
 }
 
 interface ProjectContext {
 	allProjects(): Promise<Project[]>;
+	selectedProject(id: string): Promise<Project>;
 }
 
 class ProjectService implements ProjectContext {
 	public async allProjects(): Promise<Project[]> {
 		try {
 			const data: Project[] = await db.getAllProjects();
+			return data;
+		} catch (e) {
+			throw e;
+		}
+	}
+
+	public async selectedProject(id: string): Promise<Project> {
+		try {
+			console.log("id", id)
+			const data: Project = await db.getSelectedProject(id);
+			console.log(data)
 			return data;
 		} catch (e) {
 			throw e;

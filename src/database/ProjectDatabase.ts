@@ -13,12 +13,12 @@ const db = spicedPg(
 
 class ProjecDatabase {
 	getAllProjects() {
-		const q = `SELECT * FROM projects ORDER BY id`;
+		const q = `SELECT projects.id, title,title_second, description_de, description_en, technology_de, technology_en, main_image, images, link, host, projects.created_at, badge FROM projects LEFT JOIN badges ON projects.title = badge_id ORDER BY projects.id;`;
 		return db.query(q);
 	}
 
-	getProject(id: number) {
-		const q = `SELECT * FROM projects WHERE id = $1`;
+	getSelectedProject(id: string) {
+		const q = `SELECT projects.id, title,title_second, description_de, description_en, technology_de, technology_en, main_image, images, link, host, projects.created_at, badge FROM projects LEFT JOIN badges ON projects.title = badge_id where projects.id = $1;`
 		const params = [id];
 		return db.query(q, params);
 	}

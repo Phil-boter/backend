@@ -14,4 +14,18 @@ export class ProjectsController {
 			throw e;
 		}
 	}
+
+	public static async getSelectedProject(
+		req: Request,
+		res: Response,
+		next: NextFunction
+	) {
+		try {
+			const id: any = req.query.id?.toString();
+			const data = await ProjectService.selectedProject(id);
+			res.send(data).status(200);
+		} catch (e) {
+			throw e;
+		}
+	}
 }
