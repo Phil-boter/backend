@@ -11,25 +11,25 @@ INSERT INTO badges (badge_id, badge)
 VALUES
 (
     'Social',
-    '{{"html5", "logo-html5"}, {"css3", "logo-css3"}, {"javascript", "logo-javascript"}, {"node/express", "logo-nodejs"}, {"react", "logo-react"}}'
+    '{{"html5", "logo-html5", "primary"}, {"css3", "logo-css3", "danger"}, {"javascript", "logo-javascript", "warning"}, {"node/express", "logo-nodejs","success"}, {"react", "logo-react", "secondary"}}'
 ),
 (
     'El',
-    '{{"html5", "logo-html5"}, {"css3", "logo-css3"}, {"javascript", "logo-javascript"}, {"node/express", "logo-nodejs"}, {"react", "logo-react"}}'
+    '{{"html5", "logo-html5", "primary"}, {"css3", "logo-css3", "danger"}, {"javascript", "logo-javascript", "warning"}, {"node/express", "logo-nodejs", "success"}, {"react", "logo-react", "secondary"}}'
 ),
 (
     'Petition',
-    '{{"html5", "logo-html5"}, {"css3", "logo-css3"}, {"javascript", "logo-javascript"}, {"node/express", "logo-nodejs"}, {"handlebars", "logo-nodejs"}}'
+    '{{"html5", "logo-html5", "primary"}, {"css3", "logo-css3", "danger"}, {"javascript", "logo-javascript", "warning"}, {"node/express", "logo-nodejs", "success"}, {"handlebars", "logo-nodejs", "danger"}}'
 ),
 (
     'Image',
-    '{{"html5", "logo-html5"}, {"css3", "logo-css3"}, {"javascript", "logo-javascript"}, {"node/express", "logo-nodejs"}, {"vue", "logo-vue"}}'
+    '{{"html5", "logo-html5", "primary"}, {"css3", "logo-css3", "danger"}, {"javascript", "logo-javascript", "warning"}, {"node/express", "logo-nodejs", "success"}, {"vue", "logo-vue", "success"}}'
 ),
 (
     'Alien',
-    '{{"html5", "logo-html5"}, {"css3", "logo-css3"}, {"javascript", "logo-javascript"}, {"furebase", "logo-firebase"}, {"react", "logo-react"}}'
+    '{{"html5", "logo-html5", "primary"}, {"css3", "logo-css3", "danger"}, {"javascript", "logo-javascript", "warning"}, {"furebase", "logo-firebase", "warning"}, {"react", "logo-react", "secondary"}}'
 ),
 (
     'Survey',
-    '{{"html5", "logo-html5"}, {"css3", "logo-css3"}, {"javascript", "logo-javascript"}, {"node/express", "logo-nodejs"}, {"react", "logo-react"}}'
+    '{{"html5", "logo-html5", "primary"}, {"css3", "logo-css3", "danger"}, {"javascript", "logo-javascript", "warning"}, {"node/express", "logo-nodejs", "success"}, {"react", "logo-react", "secondary"}}'
 );

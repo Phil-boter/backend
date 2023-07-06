@@ -34,7 +34,6 @@ class ProjectService implements ProjectContext {
 
 	public async selectedProject(id: string): Promise<Project> {
 		try {
-			console.log("id", id)
 			const data: Project = await db.getSelectedProject(id);
 			console.log(data)
 			return data;
