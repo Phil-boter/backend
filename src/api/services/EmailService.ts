@@ -1,4 +1,4 @@
-import db from "../../database/ProjectDatabase";
+import db from "../../database/DatabaseConnection";
 const secrets = require("../../../secrets.json");
 const nodemailer = require("nodemailer");
 

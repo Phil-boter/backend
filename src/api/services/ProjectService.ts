@@ -1,5 +1,4 @@
-import { request } from "express";
-import db from "../../database/ProjectDatabase";
+import db from "../../database/DatabaseConnection"
 
 interface Project {
 	id: number;
@@ -25,9 +24,13 @@ interface ProjectContext {
 class ProjectService implements ProjectContext {
 	public async allProjects(): Promise<Project[]> {
 		try {
-			const data: Project[] = await db.getAllProjects();
-			return data;
+ 			const data: Project[] = await db.getAllProjects();
+			if (data) {
+				db.saveStatusLog('ProjectService.AllProjects', "GET", "success", `projets were loaded`, "");
+			}
+			return data; 	
 		} catch (e) {
+			db.saveStatusLog('ProjectService.AllProjects', "GET" , "ERROR", `${e}`, "")
 			throw e;
 		}
 	}
@@ -35,8 +38,10 @@ class ProjectService implements ProjectContext {
 	public async selectedProject(id: number): Promise<Project> {
 		try {
 			const data: Project = await db.getSelectedProject(id);
+			db.saveStatusLog('ProjectService.getSeöevctedroject', "GET", "success", `project ${data.id} was loaded`, id.toString());
 			return data;
 		} catch (e) {
+			db.saveStatusLog('ProjectService.getSeöevctedroject', "GET" , "ERROR", `${e}`, id.toString())
 			throw e;
 		}
 	}
