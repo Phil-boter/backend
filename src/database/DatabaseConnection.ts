@@ -34,6 +34,11 @@ class DatabaseConnection {
 		const params = [method, action, status, logMessage, param];
 		return db.query(q, params);
 	}
+
+	cleanStatusLogs() {
+		const q = `DELETE from data_log where created_at < now() - interval '7 days'`;
+		return db.query(q);
+	}
 	// _____________________________ Monitor Log Section End ____________________________________________
 }
 

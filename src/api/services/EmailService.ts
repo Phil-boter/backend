@@ -34,6 +34,10 @@ export interface Email {
 class EmailService {
 	public async sendNewEmail(data: Email) {
 		try {
+			if(!transporter) {
+				console.log("no transponder")
+				this.reconnect();
+			}
 			const mail: Email = {
 				to: secrets.EMAILADDRESS,
 				from: data.from,
@@ -55,6 +59,11 @@ class EmailService {
 			LogService.logMonitor('EmailService.sendMail', "TRANSPONDER", "ERROR", `email was NOT send to ${data.from}`, "");
 			throw e;
 		}
+	}
+
+	private reconnect() {
+		LogService.logMonitor('EmailService.reconnect', "TRANSPONDER", "success", `transponder was reconnected}`, "");
+		transporter.verify();
 	}
 }
 
