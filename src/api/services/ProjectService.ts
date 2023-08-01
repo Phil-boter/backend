@@ -1,4 +1,5 @@
 import db from "../../database/DatabaseConnection"
+import LogService from "./LogService";
 
 interface Project {
 	id: number;
@@ -26,11 +27,11 @@ class ProjectService implements ProjectContext {
 		try {
  			const data: Project[] = await db.getAllProjects();
 			if (data) {
-				db.saveStatusLog('ProjectService.AllProjects', "GET", "success", `projets were loaded`, "");
+				LogService.logMonitor('ProjectService.AllProjects', "GET", "success", `projets were loaded`, "");
 			}
 			return data; 	
 		} catch (e) {
-			db.saveStatusLog('ProjectService.AllProjects', "GET" , "ERROR", `${e}`, "")
+			LogService.logMonitor('ProjectService.AllProjects', "GET" , "ERROR", `${e}`, "")
 			throw e;
 		}
 	}
@@ -38,10 +39,10 @@ class ProjectService implements ProjectContext {
 	public async selectedProject(id: number): Promise<Project> {
 		try {
 			const data: Project = await db.getSelectedProject(id);
-			db.saveStatusLog('ProjectService.getSeöevctedroject', "GET", "success", `project ${data.id} was loaded`, id.toString());
+			LogService.logMonitor('ProjectService.getSeöevctedroject', "GET", "success", `project ${data.id} was loaded`, id.toString());
 			return data;
 		} catch (e) {
-			db.saveStatusLog('ProjectService.getSeöevctedroject', "GET" , "ERROR", `${e}`, id.toString())
+			LogService.logMonitor('ProjectService.getSeöevctedroject', "GET" , "ERROR", `${e}`, id.toString())
 			throw e;
 		}
 	}
