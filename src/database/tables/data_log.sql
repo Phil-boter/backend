@@ -1,0 +1,11 @@
+DROP TABLE IF EXISTS data_log;
+
+CREATE TABLE data_log (
+	id SERIAL PRIMARY KEY,
+    method VARCHAR(255) NOT NULL,
+    action VARCHAR(20) NOT NULL,
+    status VARCHAR(20) NOT NULL,
+    log_message VARCHAR(4000) NOT NULL,
+    params VARCHAR(2000),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
