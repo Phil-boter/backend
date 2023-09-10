@@ -40,55 +40,50 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var DatabaseConnection_1 = __importDefault(require("../../database/DatabaseConnection"));
-var LogService_1 = __importDefault(require("./LogService"));
-var ProjectService = /** @class */ (function () {
-    function ProjectService() {
+var LogService = /** @class */ (function () {
+    function LogService() {
     }
-    ProjectService.prototype.allProjects = function () {
+    LogService.prototype.logMonitor = function (method, action, status, log_message, params) {
         return __awaiter(this, void 0, void 0, function () {
-            var data, e_1;
+            var e_1;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        _a.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, DatabaseConnection_1.default.getAllProjects()];
+                        _a.trys.push([0, 3, , 4]);
+                        return [4 /*yield*/, this.cleanStatusLogs()];
                     case 1:
-                        data = _a.sent();
-                        if (data) {
-                            LogService_1.default.logMonitor('ProjectService.AllProjects', "GET", "success", "projets were loaded", "");
-                        }
-                        return [2 /*return*/, data];
-                    case 2:
+                        _a.sent();
+                        return [4 /*yield*/, DatabaseConnection_1.default.saveStatusLog(method, action, status, log_message, params)];
+                    case 2: return [2 /*return*/, _a.sent()];
+                    case 3:
                         e_1 = _a.sent();
-                        LogService_1.default.logMonitor('ProjectService.AllProjects', "GET", "ERROR", "".concat(e_1), "");
                         throw e_1;
-                    case 3: return [2 /*return*/];
+                    case 4: return [2 /*return*/];
                 }
             });
         });
     };
-    ProjectService.prototype.selectedProject = function (id) {
+    LogService.prototype.cleanStatusLogs = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var data, e_2;
+            var e_2;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, DatabaseConnection_1.default.getSelectedProject(id)];
+                        return [4 /*yield*/, DatabaseConnection_1.default.cleanStatusLogs()];
                     case 1:
-                        data = _a.sent();
-                        LogService_1.default.logMonitor('ProjectService.getSeöevctedroject', "GET", "success", "project ".concat(data.id, " was loaded"), id.toString());
-                        return [2 /*return*/, data];
+                        _a.sent();
+                        return [2 /*return*/, DatabaseConnection_1.default.saveStatusLog('cleanStatusLogs', 'DELETE', 'success', 'logs older 7 days were deleted', '')];
                     case 2:
                         e_2 = _a.sent();
-                        LogService_1.default.logMonitor('ProjectService.getSeöevctedroject', "GET", "ERROR", "".concat(e_2), id.toString());
+                        DatabaseConnection_1.default.saveStatusLog('cleanStatusLogs', 'DELETE', 'ERROR', 'failed to delete logs older 7 days', '');
                         throw e_2;
                     case 3: return [2 /*return*/];
                 }
             });
         });
     };
-    return ProjectService;
+    return LogService;
 }());
-exports.default = new ProjectService();
-//# sourceMappingURL=ProjectService.js.map
+exports.default = new LogService();
+//# sourceMappingURL=LogService.js.map

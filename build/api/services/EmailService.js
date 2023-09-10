@@ -35,7 +35,11 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
+var LogService_1 = __importDefault(require("./LogService"));
 var secrets = require("../../../secrets.json");
 var nodemailer = require("nodemailer");
 var transporter = nodemailer.createTransport({
@@ -50,9 +54,11 @@ var transporter = nodemailer.createTransport({
 transporter.verify(function (error, success) {
     if (error) {
         console.log(error);
+        LogService_1.default.logMonitor('EmailService transponder', "verify", "ERROR", "emailservice failed to connenct to transponder", "");
     }
     else {
         console.log("Server is ready to take our messages");
+        LogService_1.default.logMonitor('EmailService transponder', "verify", "siuccess", "emailservice connected to transponder", "");
     }
 });
 var EmailService = /** @class */ (function () {
@@ -63,6 +69,10 @@ var EmailService = /** @class */ (function () {
             var mail;
             return __generator(this, function (_a) {
                 try {
+                    if (!transporter) {
+                        console.log("no transponder");
+                        this.reconnect();
+                    }
                     mail = {
                         to: secrets.EMAILADDRESS,
                         from: data.from,
@@ -79,13 +89,19 @@ var EmailService = /** @class */ (function () {
                             return answer;
                         }
                     });
+                    LogService_1.default.logMonitor('EmailService.sendMail', "TRANSPONDER", "success", "email was send to ".concat(data.from), "");
                 }
                 catch (e) {
+                    LogService_1.default.logMonitor('EmailService.sendMail', "TRANSPONDER", "ERROR", "email was NOT send to ".concat(data.from), "");
                     throw e;
                 }
                 return [2 /*return*/];
             });
         });
+    };
+    EmailService.prototype.reconnect = function () {
+        LogService_1.default.logMonitor('EmailService.reconnect', "TRANSPONDER", "success", "transponder was reconnected}", "");
+        transporter.verify();
     };
     return EmailService;
 }());

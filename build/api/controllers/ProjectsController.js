@@ -64,7 +64,7 @@ var ProjectsController = /** @class */ (function () {
             });
         });
     };
-    ProjectsController.singleProject = function (req, res, next) {
+    ProjectsController.getSelectedProject = function (req, res, next) {
         return __awaiter(this, void 0, void 0, function () {
             var queryId, id, data, e_2;
             return __generator(this, function (_a) {
@@ -73,7 +73,7 @@ var ProjectsController = /** @class */ (function () {
                         _a.trys.push([0, 2, , 3]);
                         queryId = req.query.id;
                         id = parseInt(queryId);
-                        return [4 /*yield*/, ProjectService_1.default.singleProject(id)];
+                        return [4 /*yield*/, ProjectService_1.default.selectedProject(id)];
                     case 1:
                         data = _a.sent();
                         res.send(data).status(200);

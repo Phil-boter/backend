@@ -27,6 +27,6 @@ var express = __importStar(require("express"));
 var ProjectsController_1 = require("../../../controllers/ProjectsController");
 var router = express.Router();
 router.get("/allProjects", ProjectsController_1.ProjectsController.getAllProjects);
-router.get("/singleProject", ProjectsController_1.ProjectsController.singleProject);
+router.get("/selectedProject", ProjectsController_1.ProjectsController.getSelectedProject);
 exports.default = router;
 //# sourceMappingURL=index.js.map
