@@ -1,4 +1,5 @@
-import db from "../../database/ProjectDatabase";
+import db from "../../database/DatabaseConnection"
+import LogService from "./LogService";
 
 interface Project {
 	id: number;
@@ -12,29 +13,36 @@ interface Project {
 	images: Array<[]>;
 	host: string;
 	link: string;
+	badges: Array<[]>;
 	created_at: Date;
 }
 
 interface ProjectContext {
 	allProjects(): Promise<Project[]>;
-	singleProject(id: number): Promise<Project>;
+	selectedProject(id: number): Promise<Project>;
 }
 
 class ProjectService implements ProjectContext {
 	public async allProjects(): Promise<Project[]> {
 		try {
-			const data: Project[] = await db.getAllProjects();
-			return data;
+ 			const data: Project[] = await db.getAllProjects();
+			if (data) {
+				LogService.logMonitor('ProjectService.AllProjects', "GET", "success", `projets were loaded`, "");
+			}
+			return data; 	
 		} catch (e) {
+			LogService.logMonitor('ProjectService.AllProjects', "GET" , "ERROR", `${e}`, "")
 			throw e;
 		}
 	}
 
-	public async singleProject(id: number): Promise<Project> {
+	public async selectedProject(id: number): Promise<Project> {
 		try {
-			const data: Project = await db.getProject(id);
+			const data: Project = await db.getSelectedProject(id);
+			LogService.logMonitor('ProjectService.getSeöevctedroject', "GET", "success", `project ${data.id} was loaded`, id.toString());
 			return data;
 		} catch (e) {
+			LogService.logMonitor('ProjectService.getSeöevctedroject', "GET" , "ERROR", `${e}`, id.toString())
 			throw e;
 		}
 	}

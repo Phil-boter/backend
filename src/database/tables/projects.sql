@@ -6,7 +6,7 @@ CREATE TABLE projects(
     title_second VARCHAR(255) NOT NULL,
     description_de VARCHAR(2000) NOT NULL,
     description_en VARCHAR(2000) NOT NULL,
-    technology_de VARCHAR(2000) NOT NULL,aq
+    technology_de VARCHAR(2000) NOT NULL,
     technology_en VARCHAR(2000) NOT NULL,
     main_image VARCHAR(255) NOT NULL,
     images TEXT[],

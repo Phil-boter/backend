@@ -53,6 +53,7 @@ var ProjectService = /** @class */ (function () {
                         return [4 /*yield*/, ProjectDatabase_1.default.getAllProjects()];
                     case 1:
                         data = _a.sent();
+                        console.log("data", data);
                         return [2 /*return*/, data];
                     case 2:
                         e_1 = _a.sent();

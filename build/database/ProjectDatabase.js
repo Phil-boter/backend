@@ -8,7 +8,7 @@ var ProjecDatabase = /** @class */ (function () {
     function ProjecDatabase() {
     }
     ProjecDatabase.prototype.getAllProjects = function () {
-        var q = "SELECT * FROM projects ORDER BY id";
+        var q = "SELECT * FROM projects JOIN badges ON projects.title = badge_id ORDER BY projects.id;";
         return db.query(q);
     };
     ProjecDatabase.prototype.getProject = function (id) {
