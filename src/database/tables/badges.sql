@@ -3,7 +3,7 @@ DROP TABLE IF EXISTS badges;
 CREATE TABLE badges(
     id SERIAL PRIMARY KEY,
     badge_id VARCHAR(255) NOT NULL,
-    badge TEXT[],
+    badge JSONB,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -11,25 +11,61 @@ INSERT INTO badges (badge_id, badge)
 VALUES
 (
     'Social',
-    '{{"html5", "logo-html5", "primary"}, {"css3", "logo-css3", "danger"}, {"javascript", "logo-javascript", "warning"}, {"node/express", "logo-nodejs","success"}, {"react", "logo-react", "secondary"}}'
+    jsonb_build_array(
+        jsonb_build_object('logo', 'logo-html5', 'color' , 'primary'),
+        jsonb_build_object('logo', 'logo-css3', 'color', 'danger'),
+        jsonb_build_object('logo', 'logo-javascript', 'color', 'warning'),
+        jsonb_build_object('logo', 'logo-nodejs', 'color', 'success'),
+        jsonb_build_object('logo', 'logo-react', 'color', 'secondary')
+    )
 ),
 (
     'El',
-    '{{"html5", "logo-html5", "primary"}, {"css3", "logo-css3", "danger"}, {"javascript", "logo-javascript", "warning"}, {"node/express", "logo-nodejs", "success"}, {"react", "logo-react", "secondary"}}'
+        jsonb_build_array(
+        jsonb_build_object('logo', 'logo-html5', 'color' , 'primary'),
+        jsonb_build_object('logo', 'logo-css3', 'color', 'danger'),
+        jsonb_build_object('logo', 'logo-javascript', 'color', 'warning'),
+        jsonb_build_object('logo', 'logo-nodejs', 'color', 'success'),
+        jsonb_build_object('logo', 'logo-react', 'color', 'secondary')
+    )
 ),
 (
     'Petition',
-    '{{"html5", "logo-html5", "primary"}, {"css3", "logo-css3", "danger"}, {"javascript", "logo-javascript", "warning"}, {"node/express", "logo-nodejs", "success"}, {"handlebars", "logo-nodejs", "danger"}}'
+        jsonb_build_array(
+        jsonb_build_object('logo', 'logo-html5', 'color' , 'primary'),
+        jsonb_build_object('logo', 'logo-css3', 'color', 'danger'),
+        jsonb_build_object('logo', 'logo-javascript', 'color', 'warning'),
+        jsonb_build_object('logo', 'logo-nodejs', 'color', 'success'),
+        jsonb_build_object('logo', 'logo-nodejs', 'color', 'danger')
+    )
 ),
 (
     'Image',
-    '{{"html5", "logo-html5", "primary"}, {"css3", "logo-css3", "danger"}, {"javascript", "logo-javascript", "warning"}, {"node/express", "logo-nodejs", "success"}, {"vue", "logo-vue", "success"}}'
+        jsonb_build_array(
+        jsonb_build_object('logo', 'logo-html5', 'color' , 'primary'),
+        jsonb_build_object('logo', 'logo-css3', 'color', 'danger'),
+        jsonb_build_object('logo', 'logo-javascript', 'color', 'warning'),
+        jsonb_build_object('logo', 'logo-nodejs', 'color', 'success'),
+        jsonb_build_object('logo', 'logo-vue', 'color', 'success')
+    )
 ),
 (
     'Alien',
-    '{{"html5", "logo-html5", "primary"}, {"css3", "logo-css3", "danger"}, {"javascript", "logo-javascript", "warning"}, {"furebase", "logo-firebase", "warning"}, {"react", "logo-react", "secondary"}}'
+        jsonb_build_array(
+        jsonb_build_object('logo', 'logo-html5', 'color' , 'primary'),
+        jsonb_build_object('logo', 'logo-css3', 'color', 'danger'),
+        jsonb_build_object('logo', 'logo-javascript', 'color', 'warning'),
+        jsonb_build_object('logo', 'logo-firebase', 'color', 'warning'),
+        jsonb_build_object('logo', 'logo-react', 'color', 'secondary')
+    )
 ),
 (
     'Survey',
-    '{{"html5", "logo-html5", "primary"}, {"css3", "logo-css3", "danger"}, {"javascript", "logo-javascript", "warning"}, {"node/express", "logo-nodejs", "success"}, {"react", "logo-react", "secondary"}}'
+        jsonb_build_array(
+        jsonb_build_object('logo', 'logo-html5', 'color' , 'primary'),
+        jsonb_build_object('logo', 'logo-css3', 'color', 'danger'),
+        jsonb_build_object('logo', 'logo-javascript', 'color', 'warning'),
+        jsonb_build_object('logo', 'logo-nodejs', 'color', 'success'),
+        jsonb_build_object('logo', 'logo-react', 'color', 'secondary')
+    )
 );
