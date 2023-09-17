@@ -50,14 +50,14 @@ class DatabaseConnection {
 
 	//______________________________ About Section end __________________________________________________
 
-	    //______________________________ Contact Section start ________________________________________________
+	//______________________________ Contact Section start ________________________________________________
 	
-		getContactInformation() {
-			const q = `SELECT * FROM contact_informations;`
-			return db.query(q);
-		}
+	getContactInformation() {
+		const q = `SELECT * FROM contact_informations;`
+		return db.query(q);
+	}
 	
-		//______________________________ Contact Section end __________________________________________________
+	//______________________________ Contact Section end __________________________________________________
 
 }
 
