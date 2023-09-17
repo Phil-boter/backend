@@ -40,6 +40,25 @@ class DatabaseConnection {
 		return db.query(q);
 	}
 	// _____________________________ Monitor Log Section End ____________________________________________
+
+    //______________________________ About Section start ________________________________________________
+	
+	getAboutInformation() {
+		const q = `SELECT * FROM about_informations;`
+		return db.query(q);
+	}
+
+	//______________________________ About Section end __________________________________________________
+
+	    //______________________________ Contact Section start ________________________________________________
+	
+		getContactInformation() {
+			const q = `SELECT * FROM contact_informations;`
+			return db.query(q);
+		}
+	
+		//______________________________ Contact Section end __________________________________________________
+
 }
 
 export default new DatabaseConnection();
