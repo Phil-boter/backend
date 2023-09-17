@@ -54,7 +54,8 @@ class DatabaseConnection {
 	
 	getContactInformation() {
 		const q = `SELECT * FROM contact_informations;`
-		return db.query(q);
+		console.log(q)
+		return db.query();
 	}
 	
 	//______________________________ Contact Section end __________________________________________________

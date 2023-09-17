@@ -10,7 +10,7 @@ export class AboutController {
 	) {
 		try {
 			const data = await AboutService.aboutInformation();
-			res.send(data).status(200);
+			res.send(data).status(200)
 		} catch (e) {
 			throw e;
 		}
