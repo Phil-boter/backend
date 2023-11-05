@@ -1,5 +1,5 @@
 import LogService from "./LogService";
-const secrets = require("../../secrets.json");
+const secrets = require("../../../secrets.json");
 const nodemailer = require("nodemailer");
 
 
