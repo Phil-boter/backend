@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var spicedPg = require("spiced-pg");
-var _a = require("../../secrets.json"), postgresDATABASE = _a.postgresDATABASE, postgresPIN = _a.postgresPIN, postgresUSER = _a.postgresUSER, postgresBASE = _a.postgresBASE;
+var _a = require("../secrets.json"), postgresDATABASE = _a.postgresDATABASE, postgresPIN = _a.postgresPIN, postgresUSER = _a.postgresUSER, postgresBASE = _a.postgresBASE;
 var db = spicedPg(process.env.DATABASE_URL ||
     "".concat(postgresBASE, ":").concat(postgresUSER).concat(postgresPIN, "/").concat(postgresDATABASE));
 var DatabaseConnection = /** @class */ (function () {
@@ -27,6 +27,19 @@ var DatabaseConnection = /** @class */ (function () {
     DatabaseConnection.prototype.cleanStatusLogs = function () {
         var q = "DELETE from data_log where created_at < now() - interval '7 days'";
         return db.query(q);
+    };
+    // _____________________________ Monitor Log Section End ____________________________________________
+    //______________________________ About Section start ________________________________________________
+    DatabaseConnection.prototype.getAboutInformation = function () {
+        var q = "SELECT * FROM about_informations;";
+        return db.query(q);
+    };
+    //______________________________ About Section end __________________________________________________
+    //______________________________ Contact Section start ________________________________________________
+    DatabaseConnection.prototype.getContactInformation = function () {
+        var q = "SELECT * FROM contact_informations;";
+        console.log(q);
+        return db.query();
     };
     return DatabaseConnection;
 }());

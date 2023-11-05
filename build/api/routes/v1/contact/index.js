@@ -22,21 +22,10 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 var express = __importStar(require("express"));
-var user_1 = __importDefault(require("./user"));
-var projects_1 = __importDefault(require("./projects"));
-var email_1 = __importDefault(require("./email"));
-var about_1 = __importDefault(require("./about"));
-var contact_1 = __importDefault(require("./contact"));
+var ContactController_1 = require("../../../controllers/ContactController");
 var router = express.Router();
-router.use("/user", user_1.default);
-router.use("/projects", projects_1.default);
-router.use("/email", email_1.default);
-router.use("/about", about_1.default);
-router.use("/contact", contact_1.default);
+router.get("/getContactInfo", ContactController_1.ContactController.getContact);
 exports.default = router;
 //# sourceMappingURL=index.js.map

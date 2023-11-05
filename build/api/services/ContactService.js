@@ -39,71 +39,28 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var LogService_1 = __importDefault(require("./LogService"));
-var secrets = require("../../secrets.json");
-var nodemailer = require("nodemailer");
-var transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
-    port: 587,
-    auth: {
-        user: secrets.EMAILADDRESS,
-        pass: secrets.EMAILPASS,
-    },
-});
-// verify connection configuration
-transporter.verify(function (error, success) {
-    if (error) {
-        console.log(error);
-        LogService_1.default.logMonitor('EmailService transponder', "verify", "ERROR", "emailservice failed to connenct to transponder", "");
+var DatabaseConnection_1 = __importDefault(require("../../database/DatabaseConnection"));
+var ContactService = /** @class */ (function () {
+    function ContactService() {
     }
-    else {
-        console.log("Server is ready to take our messages");
-        LogService_1.default.logMonitor('EmailService transponder', "verify", "siuccess", "emailservice connected to transponder", "");
-    }
-});
-var EmailService = /** @class */ (function () {
-    function EmailService() {
-    }
-    EmailService.prototype.sendNewEmail = function (data) {
+    ContactService.prototype.contactInformation = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var mail;
+            var e_1;
             return __generator(this, function (_a) {
-                try {
-                    if (!transporter) {
-                        console.log("no transponder");
-                        this.reconnect();
-                    }
-                    mail = {
-                        to: secrets.EMAILADDRESS,
-                        from: data.from,
-                        subject: data.subject,
-                        text: "".concat(data.from, " <").concat(secrets.EMAILADDRESS, "> \n").concat(data.text, " "),
-                        created_at: data.created_at,
-                    };
-                    transporter.sendMail(mail, function (err) {
-                        if (err) {
-                            console.log(err);
-                        }
-                        else {
-                            var answer = true;
-                            return answer;
-                        }
-                    });
-                    LogService_1.default.logMonitor('EmailService.sendMail', "TRANSPONDER", "success", "email was send to ".concat(data.from), "");
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 2, , 3]);
+                        return [4 /*yield*/, DatabaseConnection_1.default.getContactInformation()];
+                    case 1: return [2 /*return*/, _a.sent()];
+                    case 2:
+                        e_1 = _a.sent();
+                        throw e_1;
+                    case 3: return [2 /*return*/];
                 }
-                catch (e) {
-                    LogService_1.default.logMonitor('EmailService.sendMail', "TRANSPONDER", "ERROR", "email was NOT send to ".concat(data.from), "");
-                    throw e;
-                }
-                return [2 /*return*/];
             });
         });
     };
-    EmailService.prototype.reconnect = function () {
-        LogService_1.default.logMonitor('EmailService.reconnect', "TRANSPONDER", "success", "transponder was reconnected}", "");
-        transporter.verify();
-    };
-    return EmailService;
+    return ContactService;
 }());
-exports.default = new EmailService();
-//# sourceMappingURL=EmailService.js.map
+exports.default = new ContactService();
+//# sourceMappingURL=ContactService.js.map

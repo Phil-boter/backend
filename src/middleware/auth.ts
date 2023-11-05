@@ -1,7 +1,7 @@
 import { NextFunction } from "express-serve-static-core";
 import express, { Application, Request, Response } from "express";
 import jwt, { Secret, JwtPayload } from "jsonwebtoken";
-import secrets from "../../secrets.json";
+import secrets from "../secrets.json";
 
 export const SECRET_KEY: Secret = secrets.JWTKEY;
 
