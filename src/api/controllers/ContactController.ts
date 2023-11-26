@@ -11,8 +11,12 @@ export class ContactController {
 		try {
             console.log("regqust")
 			const data = await ContactService.contactInformation();
-            console.log("request", data)
-			res.send(data).status(200);
+            if (data) {
+				res.send(data).status(200);
+			}
+			else {
+               throw new Error;
+			}		
 		} catch (e) {
 			throw e;
 		}

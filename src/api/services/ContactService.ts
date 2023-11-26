@@ -1,15 +1,15 @@
 import db from "../../database/DatabaseConnection";
 
 interface IContactData {
+	id: number;
 	info_text_de: string;
 	info_text_en: string;
-    badges: JSON;
+	created_at: Date;
 }
 
 
 interface ContactContext {
 	contactInformation(): Promise<IContactData>;
-	//selectedProject(id: number): Promise<Project>;
 }
 
 

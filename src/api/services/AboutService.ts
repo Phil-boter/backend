@@ -4,13 +4,13 @@ interface IAboutData {
 	id: number;
 	info_text_de: string;
 	info_text_en: string;
+	badges: JSON;
 	created_at: Date;
 }
 
 
 interface AboutContext {
 	aboutInformation(): Promise<IAboutData>;
-	//selectedProject(id: number): Promise<Project>;
 }
 
 

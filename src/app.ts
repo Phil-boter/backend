@@ -36,8 +36,8 @@ class App {
 						__dirname,
 						"..",
 						"frontend",
-						"build"
-						//"frontend-angular"
+						"build",
+						"frontend-angular"
 					)
 				)
 			);
@@ -49,7 +49,7 @@ class App {
 						"..",
 						"frontend",
 						"build",
-						//"frontend-angular",
+						"frontend-angular",
 						"index.html"
 					)
 				);

@@ -9,7 +9,9 @@ export class ProjectsController {
 	) {
 		try {
 			const data = await ProjectService.allProjects();
-			res.send(data).status(200);
+			if(data) {
+				res.send(data).status(200);
+			}
 		} catch (e) {
 			throw e;
 		}
