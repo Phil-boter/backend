@@ -1,4 +1,5 @@
 import db from "../../database/DatabaseConnection";
+import LogService from "./LogService";
 
 interface IContactData {
 	id: number;
@@ -16,8 +17,11 @@ interface ContactContext {
 class ContactService implements ContactContext{
 	public async contactInformation(): Promise<IContactData> {
 		try {
-            return await db.getContactInformation();
+			const {rows} = await db.getContactInformation();
+			LogService.logMonitor('ContactService.getContactInformation', "GET", "success", `contact info was loaded`, "");
+            return rows
 		} catch (e) {
+			LogService.logMonitor('ContactService.getContactInformation', "GET" , "ERROR", `${e}`, "")
 			throw e;
 		}
 	}

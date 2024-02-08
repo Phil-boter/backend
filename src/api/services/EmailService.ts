@@ -19,7 +19,7 @@ transporter.verify(function (error: any, success: any): any {
 		LogService.logMonitor('EmailService transponder', "verify", "ERROR", `emailservice failed to connenct to transponder`, "");
 	} else {
 		console.log("Server is ready to take our messages");
-		LogService.logMonitor('EmailService transponder', "verify", "siuccess", `emailservice connected to transponder`, "");
+		LogService.logMonitor('EmailService transponder', "verify", "Success", `emailservice connected to transponder`, "");
 	}
 });
 
@@ -54,7 +54,7 @@ class EmailService {
 					return answer;
 				}
 			});
-			LogService.logMonitor('EmailService.sendMail', "TRANSPONDER", "success", `email was send to ${data.from}`, "");
+			LogService.logMonitor('EmailService.sendMail', "TRANSPONDER", "Success", `email was send to ${data.from}`, "");
 		} catch (e) {
 			LogService.logMonitor('EmailService.sendMail', "TRANSPONDER", "ERROR", `email was NOT send to ${data.from}`, "");
 			throw e;
@@ -62,7 +62,7 @@ class EmailService {
 	}
 
 	private reconnect() {
-		LogService.logMonitor('EmailService.reconnect', "TRANSPONDER", "success", `transponder was reconnected}`, "");
+		LogService.logMonitor('EmailService.reconnect', "TRANSPONDER", "Success", `transponder was reconnected}`, "");
 		transporter.verify();
 	}
 }

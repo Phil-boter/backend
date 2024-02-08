@@ -11,7 +11,7 @@ CREATE TABLE about_informations(
 INSERT INTO about_informations (info_text_de, info_text_en, badges)
 VALUES
 (
-    '            <p>
+            '<p>
                                 Ich bin ein Junior Full Stack Developer mit
                                 einem Hintergrund in der Lebensmittelindustrie
                                 und im Automobil-Service. Meine berufliche
@@ -37,7 +37,7 @@ VALUES
                                 meine Zukunft sein würde. Als mir die Chance
                                 geboten wurde, an einem Bootcamp der SPICED
                                 Academy teilzunehmen, um ein Full Stack
-                                Developer zu werden, habe ich sie ergriffen.{" "}
+                                Developer zu werden, habe ich sie ergriffen.
                                 <br />
                                 <br />
                                 In diesem 12-wöchigen Intensivkurs tauchte ich
@@ -54,23 +54,22 @@ VALUES
                                 mobile Geräte immer wichtiger wird, habe ich
                                 begonnen, meine ersten Apps mit React-Native und
                                 Google Firebase zu entwickeln. Schauen Sie sich
-                                also gerne einen Teil meines Codes auf{" "}
-                                <span
-                                    class="link-github contact-section-link2
-                                        Click={() =>
-                                            window.open("https://github.com/Phil-boter")
-                                        }
-                                    >
-                                     <p>Github.</p>
+                                also gerne einen Teil meines Codes auf
+								</p>
+	  							<br />			
+                                <button #button
+									style="color: white;  font-size: 1.4rem; background: black; border-radius: 8px; height: 40px; width: auto; padding: 7px; text-align: center;"
+									type="button">
+                                     Github
                                               
-                                </span>
-                                <br />
-                                <br />
+                                </button>.
+	   							<br />
+								<p> 
                                 Derzeit arbeite ich als Software-Entwickler bei Accenture Industry X an einem Qualitätssicherungs-Tool für die Automobilindustrie. 
                                 Hierbei umfasst mein Tätigkeitsgebiet die Weiterentwicklung und Wartung des Frontends, 
                                 aber auch das Bearbeiten von Incidents im DevOps-Umfeld. 
                                 CI/CD, Releasemanagement und Backend-Entwicklung zählen ebenso zu meinen Tätigkeiten.
-                            </p>',
+                            	</p>',
     '                         <p>
                                 I am a junior full stack developer with a
                                 background in the food industry and automotive
@@ -114,17 +113,16 @@ VALUES
                                 developing my first apps with react-native and
                                 Google Firebase. So feel free to have a look at
                                 some of my code on
-                                <span
-                                    className="link-github contact-section-link"
-                                        Click={() =>
-                                            window.open("https://github.com/Phil-boter")
-                                        }
-                                    >
-                                     <p>Github.</p>
+       								</p>
+	  							<br />			
+                                <button #button
+									style"color: white;  font-size: 1.4rem; background: black; border-radius: 8px; height: 40px; width: auto; padding: 7px; text-align: center;"
+									type="button">
+                                     Github
                                               
-                                </span>
-                                <br />
-                                <br />
+                                </button>.
+	   							<br />
+								<p> 
                                 I am currently working as a software developer at Accenture Industry X on a quality assurance tool for the automotive industry. 
                                 In this context, my field of activity includes the further development and maintenance of the frontend, 
                                 but also the handling of incidents in a DevOps environment. 
@@ -132,13 +130,13 @@ VALUES
                             </p>
                             ',
     jsonb_build_array(
-        jsonb_build_object('logo', 'logo-html5', 'color' , 'primary'),
-        jsonb_build_object('logo', 'logo-css3', 'color', 'danger'),
-        jsonb_build_object('logo', 'logo-javascript', 'color', 'warning'),
-        jsonb_build_object('logo', 'logo-nodejs', 'color', 'success'),
-        jsonb_build_object('logo', 'logo-react', 'color', 'secondary'),
-        jsonb_build_object('logo', 'logo-firebase', 'color', 'warning'),
-        jsonb_build_object('logo', 'logo-angular', 'color', 'danger'),
-        jsonb_build_object('logo', 'logo-github', 'color', 'dark')
+        jsonb_build_object('logo', 'logo-html5', 'color' , 'primary', 'label', 'HTML5'),
+        jsonb_build_object('logo', 'logo-css3', 'color', 'danger', 'label', 'CSS3'),
+        jsonb_build_object('logo', 'logo-javascript', 'color', 'warning', 'label', 'JavaScript'),
+        jsonb_build_object('logo', 'logo-nodejs', 'color', 'success', 'label', 'NodeJS'),
+        jsonb_build_object('logo', 'logo-react', 'color', 'secondary', 'label', 'ReactJS'),
+        jsonb_build_object('logo', 'logo-firebase', 'color', 'warning', 'label', 'Google Firebase'),
+        jsonb_build_object('logo', 'logo-angular', 'color', 'danger', 'label', 'Angular'),
+        jsonb_build_object('logo', 'logo-github', 'color', 'dark', 'label', 'Github')
     )
 );

@@ -46,18 +46,18 @@ var ProjectService = /** @class */ (function () {
     }
     ProjectService.prototype.allProjects = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var data, e_1;
+            var rows, e_1;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
                         return [4 /*yield*/, DatabaseConnection_1.default.getAllProjects()];
                     case 1:
-                        data = _a.sent();
-                        if (data) {
+                        rows = (_a.sent()).rows;
+                        if (rows) {
                             LogService_1.default.logMonitor('ProjectService.AllProjects', "GET", "success", "projets were loaded", "");
                         }
-                        return [2 /*return*/, data];
+                        return [2 /*return*/, rows];
                     case 2:
                         e_1 = _a.sent();
                         LogService_1.default.logMonitor('ProjectService.AllProjects', "GET", "ERROR", "".concat(e_1), "");
@@ -69,16 +69,16 @@ var ProjectService = /** @class */ (function () {
     };
     ProjectService.prototype.selectedProject = function (id) {
         return __awaiter(this, void 0, void 0, function () {
-            var data, e_2;
+            var rows, e_2;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
                         return [4 /*yield*/, DatabaseConnection_1.default.getSelectedProject(id)];
                     case 1:
-                        data = _a.sent();
-                        LogService_1.default.logMonitor('ProjectService.getSeöevctedroject', "GET", "success", "project ".concat(data.id, " was loaded"), id.toString());
-                        return [2 /*return*/, data];
+                        rows = (_a.sent()).rows;
+                        LogService_1.default.logMonitor('ProjectService.getSeöevctedroject', "GET", "success", "project ".concat(id, " was loaded"), id.toString());
+                        return [2 /*return*/, rows];
                     case 2:
                         e_2 = _a.sent();
                         LogService_1.default.logMonitor('ProjectService.getSeöevctedroject', "GET", "ERROR", "".concat(e_2), id.toString());

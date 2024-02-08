@@ -26,13 +26,9 @@ var App = /** @class */ (function () {
         this.app.use(body_parser_1.default.json());
         this.app.use(body_parser_1.default.urlencoded({ extended: false }));
         if (process.env.NODE_ENV === "production") {
-            this.app.use(express_1.default.static(path_1.default.join(__dirname, "..", "frontend", "build"
-            //"frontend-angular"
-            )));
+            this.app.use(express_1.default.static(path_1.default.join(__dirname, "..", "frontend", "build", "frontend-angular")));
             this.app.get("*", function (req, res) {
-                res.sendFile(path_1.default.resolve(__dirname, "..", "frontend", "build", 
-                //"frontend-angular",
-                "index.html"));
+                res.sendFile(path_1.default.resolve(__dirname, "..", "frontend", "build", "frontend-angular", "index.html"));
             });
         }
     };

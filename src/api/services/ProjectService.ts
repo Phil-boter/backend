@@ -25,11 +25,11 @@ interface ProjectContext {
 class ProjectService implements ProjectContext {
 	public async allProjects(): Promise<Project[]> {
 		try {
- 			const data: Project[] = await db.getAllProjects();
-			if (data) {
+ 			const {rows} = await db.getAllProjects();
+			if (rows) {
 				LogService.logMonitor('ProjectService.AllProjects', "GET", "success", `projets were loaded`, "");
 			}
-			return data; 	
+			return rows; 	
 		} catch (e) {
 			LogService.logMonitor('ProjectService.AllProjects', "GET" , "ERROR", `${e}`, "")
 			throw e;
@@ -38,9 +38,9 @@ class ProjectService implements ProjectContext {
 
 	public async selectedProject(id: number): Promise<Project> {
 		try {
-			const data: Project = await db.getSelectedProject(id);
-			LogService.logMonitor('ProjectService.getSeöevctedroject', "GET", "success", `project ${data.id} was loaded`, id.toString());
-			return data;
+			const {rows} = await db.getSelectedProject(id);
+			LogService.logMonitor('ProjectService.getSeöevctedroject', "GET", "success", `project ${id} was loaded`, id.toString());
+			return rows;
 		} catch (e) {
 			LogService.logMonitor('ProjectService.getSeöevctedroject', "GET" , "ERROR", `${e}`, id.toString())
 			throw e;

@@ -1,5 +1,4 @@
 import * as express from "express";
-import { auth } from "../../../middleware/auth"
 import user from "./user";
 import projects from "./projects";
 import email from "./email";

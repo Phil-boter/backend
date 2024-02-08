@@ -38,8 +38,7 @@ var DatabaseConnection = /** @class */ (function () {
     //______________________________ Contact Section start ________________________________________________
     DatabaseConnection.prototype.getContactInformation = function () {
         var q = "SELECT * FROM contact_informations;";
-        console.log(q);
-        return db.query();
+        return db.query(q);
     };
     return DatabaseConnection;
 }());

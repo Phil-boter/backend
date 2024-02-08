@@ -4,7 +4,7 @@ const {
 	postgresPIN,
 	postgresUSER,
 	postgresBASE,
-} = require("../../secrets.json");
+} = require("../secrets.json");
 
 const db = spicedPg(
 	process.env.DATABASE_URL ||

@@ -40,7 +40,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var LogService_1 = __importDefault(require("./LogService"));
-var secrets = require("../../secrets.json");
+var secrets = require("../../../secrets.json");
 var nodemailer = require("nodemailer");
 var transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
@@ -58,7 +58,7 @@ transporter.verify(function (error, success) {
     }
     else {
         console.log("Server is ready to take our messages");
-        LogService_1.default.logMonitor('EmailService transponder', "verify", "siuccess", "emailservice connected to transponder", "");
+        LogService_1.default.logMonitor('EmailService transponder', "verify", "Success", "emailservice connected to transponder", "");
     }
 });
 var EmailService = /** @class */ (function () {
@@ -89,7 +89,7 @@ var EmailService = /** @class */ (function () {
                             return answer;
                         }
                     });
-                    LogService_1.default.logMonitor('EmailService.sendMail', "TRANSPONDER", "success", "email was send to ".concat(data.from), "");
+                    LogService_1.default.logMonitor('EmailService.sendMail', "TRANSPONDER", "Success", "email was send to ".concat(data.from), "");
                 }
                 catch (e) {
                     LogService_1.default.logMonitor('EmailService.sendMail', "TRANSPONDER", "ERROR", "email was NOT send to ".concat(data.from), "");
@@ -100,7 +100,7 @@ var EmailService = /** @class */ (function () {
         });
     };
     EmailService.prototype.reconnect = function () {
-        LogService_1.default.logMonitor('EmailService.reconnect', "TRANSPONDER", "success", "transponder was reconnected}", "");
+        LogService_1.default.logMonitor('EmailService.reconnect', "TRANSPONDER", "Success", "transponder was reconnected}", "");
         transporter.verify();
     };
     return EmailService;

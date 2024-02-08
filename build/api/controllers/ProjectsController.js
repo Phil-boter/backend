@@ -54,7 +54,9 @@ var ProjectsController = /** @class */ (function () {
                         return [4 /*yield*/, ProjectService_1.default.allProjects()];
                     case 1:
                         data = _a.sent();
-                        res.send(data).status(200);
+                        if (data) {
+                            res.send(data).status(200);
+                        }
                         return [3 /*break*/, 3];
                     case 2:
                         e_1 = _a.sent();

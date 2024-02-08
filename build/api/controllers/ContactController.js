@@ -51,11 +51,9 @@ var ContactController = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
-                        console.log("regqust");
                         return [4 /*yield*/, ContactService_1.default.contactInformation()];
                     case 1:
                         data = _a.sent();
-                        console.log("request", data);
                         res.send(data).status(200);
                         return [3 /*break*/, 3];
                     case 2:
