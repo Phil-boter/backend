@@ -42,6 +42,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var LogService_1 = __importDefault(require("./LogService"));
 var secrets = require("../../../secrets.json");
 var nodemailer = require("nodemailer");
+var email_model_1 = __importDefault(require("../models/email.model"));
 var transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
     port: 587,
@@ -53,7 +54,6 @@ var transporter = nodemailer.createTransport({
 // verify connection configuration
 transporter.verify(function (error, success) {
     if (error) {
-        console.log(error);
         LogService_1.default.logMonitor('EmailService transponder', "verify", "ERROR", "emailservice failed to connenct to transponder", "");
     }
     else {
@@ -66,21 +66,13 @@ var EmailService = /** @class */ (function () {
     }
     EmailService.prototype.sendNewEmail = function (data) {
         return __awaiter(this, void 0, void 0, function () {
-            var mail;
             return __generator(this, function (_a) {
                 try {
                     if (!transporter) {
                         console.log("no transponder");
                         this.reconnect();
                     }
-                    mail = {
-                        to: secrets.EMAILADDRESS,
-                        from: data.from,
-                        subject: data.subject,
-                        text: "".concat(data.from, " <").concat(secrets.EMAILADDRESS, "> \n").concat(data.text, " "),
-                        created_at: data.created_at,
-                    };
-                    transporter.sendMail(mail, function (err) {
+                    transporter.sendMail(this.createNewEmail(data), function (err) {
                         if (err) {
                             console.log(err);
                         }
@@ -98,6 +90,10 @@ var EmailService = /** @class */ (function () {
                 return [2 /*return*/];
             });
         });
+    };
+    EmailService.prototype.createNewEmail = function (data) {
+        var newEmail = email_model_1.default.createEmail(secrets.EMAILADDRESS, data.from, data.subject, "".concat(data.from, " <").concat(secrets.EMAILADDRESS, "> \n").concat(data.text, " "), data.created_at);
+        return newEmail;
     };
     EmailService.prototype.reconnect = function () {
         LogService_1.default.logMonitor('EmailService.reconnect', "TRANSPONDER", "Success", "transponder was reconnected}", "");

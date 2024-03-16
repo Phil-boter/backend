@@ -41,21 +41,28 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var DatabaseConnection_1 = __importDefault(require("../../database/DatabaseConnection"));
 var LogService_1 = __importDefault(require("./LogService"));
+var contact_model_1 = require("../models/contact.model");
 var ContactService = /** @class */ (function () {
     function ContactService() {
     }
     ContactService.prototype.contactInformation = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var rows, e_1;
+            var contactArray_1, rows, e_1;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
+                        contactArray_1 = [];
                         return [4 /*yield*/, DatabaseConnection_1.default.getContactInformation()];
                     case 1:
                         rows = (_a.sent()).rows;
-                        LogService_1.default.logMonitor('ContactService.getContactInformation', "GET", "success", "contact info was loaded", "");
-                        return [2 /*return*/, rows];
+                        if (rows) {
+                            rows.forEach(function (item) {
+                                LogService_1.default.logMonitor('ContactService.getContactInformation', "GET", "success", "contact info was loaded", "");
+                                contactArray_1.push(contact_model_1.Contact.createContactInformation(item));
+                            });
+                        }
+                        return [2 /*return*/, contactArray_1];
                     case 2:
                         e_1 = _a.sent();
                         LogService_1.default.logMonitor('ContactService.getContactInformation', "GET", "ERROR", "".concat(e_1), "");

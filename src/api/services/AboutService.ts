@@ -1,26 +1,25 @@
+import { About } from "../models/about.model";
 import db from "../../database/DatabaseConnection";
 import LogService from "./LogService";
 
-interface IAboutData {
-	id: number;
-	info_text_de: string;
-	info_text_en: string;
-	badges: JSON;
-	created_at: Date;
-}
-
 
 interface AboutContext {
-	aboutInformation(): Promise<IAboutData>;
+	aboutInformation(): Promise<About[]>;
 }
 
 
 class AboutService implements AboutContext{
-	public async aboutInformation(): Promise<IAboutData> {
+	public async aboutInformation(): Promise<About[]> {
 		try {
+			let aboutAray: About[] = [];
 			const {rows}  = await db.getAboutInformation();
-			LogService.logMonitor('AboutService.getAboutInformation', "GET", "success", `about info was loaded`, "");
-            return rows;
+			if(rows) {
+				rows.forEach((item: About)=> {
+					LogService.logMonitor('AboutService.getAboutInformation', "GET", "success", `about info was loaded`, "");
+					aboutAray.push(About.createAboutInformation(item));
+				})
+			}
+            return aboutAray;
 		} catch (e) {
 			LogService.logMonitor('AboutService.getAboutInformation', "GET" , "ERROR", `${e}`, "")
 			throw e;

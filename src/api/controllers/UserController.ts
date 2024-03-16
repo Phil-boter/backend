@@ -9,9 +9,9 @@ export class UserController {
 	) {
 		try {
 			const data = UserService.userProfileData();
-			res.send(data).status(200);
+			res.status(200).send(data);
 		} catch (e) {
-			throw e;
+			res.status(400).send(e);
 		}
 	}
 }

@@ -54,11 +54,12 @@ var ContactController = /** @class */ (function () {
                         return [4 /*yield*/, ContactService_1.default.contactInformation()];
                     case 1:
                         data = _a.sent();
-                        res.send(data).status(200);
+                        res.status(200).send(data);
                         return [3 /*break*/, 3];
                     case 2:
                         e_1 = _a.sent();
-                        throw e_1;
+                        res.status(400).send(e_1);
+                        return [3 /*break*/, 3];
                     case 3: return [2 /*return*/];
                 }
             });

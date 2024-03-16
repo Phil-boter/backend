@@ -39,6 +39,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var project_model_1 = __importDefault(require("../models/project.model"));
 var DatabaseConnection_1 = __importDefault(require("../../database/DatabaseConnection"));
 var LogService_1 = __importDefault(require("./LogService"));
 var ProjectService = /** @class */ (function () {
@@ -46,18 +47,22 @@ var ProjectService = /** @class */ (function () {
     }
     ProjectService.prototype.allProjects = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var rows, e_1;
+            var projectsArray_1, rows, e_1;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
+                        projectsArray_1 = [];
                         return [4 /*yield*/, DatabaseConnection_1.default.getAllProjects()];
                     case 1:
                         rows = (_a.sent()).rows;
                         if (rows) {
                             LogService_1.default.logMonitor('ProjectService.AllProjects', "GET", "success", "projets were loaded", "");
+                            rows.forEach(function (item) {
+                                projectsArray_1.push(project_model_1.default.createProject(item));
+                            });
                         }
-                        return [2 /*return*/, rows];
+                        return [2 /*return*/, projectsArray_1];
                     case 2:
                         e_1 = _a.sent();
                         LogService_1.default.logMonitor('ProjectService.AllProjects', "GET", "ERROR", "".concat(e_1), "");

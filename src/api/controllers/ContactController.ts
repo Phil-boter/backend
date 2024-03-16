@@ -10,9 +10,9 @@ export class ContactController {
 	) {
 		try {
 			const data = await ContactService.contactInformation();
-			res.send(data).status(200);		
+			res.status(200).send(data);
 		} catch (e) {
-			throw e;
+			res.status(400).send(e);
 		}
 	}
 }

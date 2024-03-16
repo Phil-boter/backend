@@ -11,10 +11,10 @@ var UserController = /** @class */ (function () {
     UserController.getUserProfileData = function (req, res, next) {
         try {
             var data = UserService_1.default.userProfileData();
-            res.send(data).status(200);
+            res.status(200).send(data);
         }
         catch (e) {
-            throw e;
+            res.status(400).send(e);
         }
     };
     return UserController;
