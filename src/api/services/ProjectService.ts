@@ -14,7 +14,7 @@ class ProjectService implements ProjectContext {
 	public async allProjects(): Promise<Project[]> {
 		try {
 			let projectsArray: Project[] = [];
- 			const {rows} = await db.getAllProjects();		
+ 			const {rows} = await db.getAllProjects();	
 			if (rows) {		
 				LogService.logMonitor('ProjectService.AllProjects', "GET", "success", `projets were loaded`, "");
 				rows.forEach((item: ProjectInterface) => {

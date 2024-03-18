@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var Project = /** @class */ (function () {
-    function Project(id, title, title_second, description_de, description_en, technology_de, technology_en, main_image, images, link, host, created_at, badges) {
+    function Project(id, title, title_second, description_de, description_en, technology_de, technology_en, main_image, images, link, host, created_at, badge) {
         this.id = id;
         this.title = title;
         this.title_second = title_second;
@@ -14,10 +14,10 @@ var Project = /** @class */ (function () {
         this.link = link;
         this.host = host;
         this.created_at = created_at;
-        this.badges = badges;
+        this.badge = badge;
     }
     Project.createProject = function (project) {
-        return new Project(project.id, project.title, project.title_second, project.description_de, project.description_en, project.technology_de, project.technology_en, project.main_image, project.images, project.link, project.host, project.created_at, project.badges);
+        return new Project(project.id, project.title, project.title_second, project.description_de, project.description_en, project.technology_de, project.technology_en, project.main_image, project.images, project.link, project.host, project.created_at, project.badge);
     };
     Object.defineProperty(Project.prototype, "projectId", {
         get: function () {
@@ -138,10 +138,10 @@ var Project = /** @class */ (function () {
     });
     Object.defineProperty(Project.prototype, "projectBadges", {
         get: function () {
-            return this.badges;
+            return this.badge;
         },
         set: function (value) {
-            this.badges = value;
+            this.badge = value;
         },
         enumerable: false,
         configurable: true

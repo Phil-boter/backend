@@ -14,7 +14,7 @@ class Project {
     public link: string;
     public host: string;
     public created_at: Date;
-    public badges;
+    public badge;
 
     constructor(
         id: number,
@@ -29,7 +29,7 @@ class Project {
         link: string,
         host: string,
         created_at: Date,
-        badges: []
+        badge: []
     ) {
         this.id = id;
         this.title = title;
@@ -43,7 +43,7 @@ class Project {
         this.link = link;
         this.host = host;
         this.created_at = created_at;
-        this.badges = badges;
+        this.badge = badge;
     }
 
 	public static createProject(project: ProjectInterface) {
@@ -60,7 +60,7 @@ class Project {
             project.link,
             project.host,
             project.created_at,
-            project.badges
+            project.badge
         );
     }
 
@@ -146,10 +146,10 @@ class Project {
     }
     
     public get projectBadges() {
-        return this.badges
+        return this.badge
     }
     public set projectBadges(value: []) {
-        this.badges = value;
+        this.badge = value;
     }
 }
 

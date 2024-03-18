@@ -16,7 +16,8 @@ VALUES
         jsonb_build_object('logo', 'logo-css3', 'color', 'danger'),
         jsonb_build_object('logo', 'logo-javascript', 'color', 'warning'),
         jsonb_build_object('logo', 'logo-nodejs', 'color', 'success'),
-        jsonb_build_object('logo', 'logo-react', 'color', 'secondary')
+        jsonb_build_object('logo', 'logo-react', 'color', 'secondary'),
+        jsonb_build_object('logo', 'server-outline', 'color', 'secondary', 'label', 'PostGreSQL')
     )
 ),
 (
@@ -26,7 +27,8 @@ VALUES
         jsonb_build_object('logo', 'logo-css3', 'color', 'danger'),
         jsonb_build_object('logo', 'logo-javascript', 'color', 'warning'),
         jsonb_build_object('logo', 'logo-nodejs', 'color', 'success'),
-        jsonb_build_object('logo', 'logo-react', 'color', 'secondary')
+        jsonb_build_object('logo', 'logo-react', 'color', 'secondary'),
+        jsonb_build_object('logo', 'server-outline', 'color', 'secondary', 'label', 'PostGreSQL')
     )
 ),
 (
@@ -36,7 +38,8 @@ VALUES
         jsonb_build_object('logo', 'logo-css3', 'color', 'danger'),
         jsonb_build_object('logo', 'logo-javascript', 'color', 'warning'),
         jsonb_build_object('logo', 'logo-nodejs', 'color', 'success'),
-        jsonb_build_object('logo', 'logo-nodejs', 'color', 'danger')
+        jsonb_build_object('logo', 'logo-nodejs', 'color', 'danger'),
+        jsonb_build_object('logo', 'server-outline', 'color', 'secondary', 'label', 'PostGreSQL')
     )
 ),
 (
@@ -46,7 +49,8 @@ VALUES
         jsonb_build_object('logo', 'logo-css3', 'color', 'danger'),
         jsonb_build_object('logo', 'logo-javascript', 'color', 'warning'),
         jsonb_build_object('logo', 'logo-nodejs', 'color', 'success'),
-        jsonb_build_object('logo', 'logo-vue', 'color', 'success')
+        jsonb_build_object('logo', 'logo-vue', 'color', 'success'),
+        jsonb_build_object('logo', 'server-outline', 'color', 'secondary', 'label', 'PostGreSQL')
     )
 ),
 (
@@ -56,7 +60,8 @@ VALUES
         jsonb_build_object('logo', 'logo-css3', 'color', 'danger'),
         jsonb_build_object('logo', 'logo-javascript', 'color', 'warning'),
         jsonb_build_object('logo', 'logo-firebase', 'color', 'warning'),
-        jsonb_build_object('logo', 'logo-react', 'color', 'secondary')
+        jsonb_build_object('logo', 'logo-react', 'color', 'secondary'),
+        jsonb_build_object('logo', 'logo-buffer', 'color', 'warning', 'label', 'FireStore')
     )
 ),
 (
@@ -66,6 +71,7 @@ VALUES
         jsonb_build_object('logo', 'logo-css3', 'color', 'danger'),
         jsonb_build_object('logo', 'logo-javascript', 'color', 'warning'),
         jsonb_build_object('logo', 'logo-nodejs', 'color', 'success'),
-        jsonb_build_object('logo', 'logo-react', 'color', 'secondary')
+        jsonb_build_object('logo', 'logo-react', 'color', 'secondary'),
+        jsonb_build_object('logo', 'server-outline', 'color', 'secondary', 'label', 'PostGreSQL')
     )
 );

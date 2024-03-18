@@ -10,6 +10,6 @@ export interface ProjectInterface {
 	images: [];
 	host: string;
 	link: string;
-	badges: [];
+	badge: [];
 	created_at: Date;
 }

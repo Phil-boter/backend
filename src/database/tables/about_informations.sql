@@ -137,6 +137,10 @@ VALUES
         jsonb_build_object('logo', 'logo-react', 'color', 'secondary', 'label', 'ReactJS'),
         jsonb_build_object('logo', 'logo-firebase', 'color', 'warning', 'label', 'Google Firebase'),
         jsonb_build_object('logo', 'logo-angular', 'color', 'danger', 'label', 'Angular'),
-        jsonb_build_object('logo', 'logo-github', 'color', 'dark', 'label', 'Github')
+        jsonb_build_object('logo', 'logo-github', 'color', 'dark', 'label', 'Github'),
+        jsonb_build_object('logo', 'server', 'color', 'danger', 'label', 'Oracle'),
+        jsonb_build_object('logo', 'server-outline', 'color', 'secondary', 'label', 'PostGreSQL'),
+        jsonb_build_object('logo', 'logo-buffer', 'color', 'success', 'label', 'MongoDB'),
+        jsonb_build_object('logo', 'logo-buffer', 'color', 'warning', 'label', 'FireStore')
     )
 );
